@@ -1,17 +1,14 @@
 % Finite difference method for 1D Heat equation BIVP
-% u_{t} = u_{xx}, (t, x) in [0, 0.1]x[0, 2]
-% u(0, t) = 0, u(2, t) = 8
-% u(x, 0) = 2*x^2
 % Explicit scheme
 % Grid end points
 x_begin = 0;
 x_end = 2;
 t_begin = 0;
-t_end = 0.1;
+t_end = 2;
 
 % Time & space step
 J = 10;
-N = 60;
+N = 100;
 dt = t_end/N; % time
 dx = x_end/J; % space
 
@@ -21,6 +18,7 @@ x = x_begin:dx:x_end;
 u = zeros(J + 1, N); % Solution grid
 f = 2*x.^2; % Initial condition function u(x, 0)
 
+if mu <= 0.5
 for n = 1:N
     t = n*dt; % Time update
     u_bc_begin = 0; % u(0, t) = 0
@@ -45,3 +43,8 @@ title('Finite difference method for 1D Heat equation')
 xlabel('\it x', 'interpreter', 'latex')
 ylabel('\it y', 'interpreter', 'latex')
 zlabel('\it z', 'interpreter', 'latex')
+
+else 
+    disp('Explicit scheme is unstable for mu > 0.5')
+
+end 
