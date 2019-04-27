@@ -1,4 +1,7 @@
 % Finite difference method for 1D Heat equation BIVP
+% u_{t} = u_{xx}, (t, x) in [0, 0.1]x[0, 2]
+% u(0, t) = 0, u(2, t) = 8
+% u(x, 0) = 2*x^2
 % Explicit scheme
 % Grid end points
 x_begin = 0;
