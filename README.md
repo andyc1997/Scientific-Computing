@@ -2,4 +2,4 @@
 A repository contains MATLAB scripts from Scientific Computing.
 Topics studied in this course are listed as below:
 1. Acceptance-Rejection Algorithm
-2. Finite difference method for PDE
+2. Finite difference method for Parabolic PDE
