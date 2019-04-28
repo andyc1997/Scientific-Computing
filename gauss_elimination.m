@@ -1,8 +1,8 @@
-%% MATH 4602 Question 1
+%% Gaussian elimination without pivoting
 A = rand(10, 10);
 b = rand(10, 1);
 Gauss(A, b)
-A\b
+
 function x = Gauss(A, b)
     aug_matrix = [A, b]; % Assume b is column vector
     dim = size(aug_matrix);
@@ -13,7 +13,7 @@ function x = Gauss(A, b)
             if aug_matrix(k, k) ~= 0
                 aug_matrix(j, :) = aug_matrix(j, :) - aug_matrix(j, k)/aug_matrix(k, k).*aug_matrix(k, :);
             else
-                disp('Pivoting required')
+                disp('Pivoting required') % Error handler
                 return
             end 
         end
