@@ -11,7 +11,7 @@ function x = Gauss(A, b)
     for k = 1:(nrow - 1) % Forward Gaussian elimination
         for j = (k + 1):nrow
             if aug_matrix(k, k) ~= 0
-                aug_matrix(j, :) = aug_matrix(j, :) - aug_matrix(j, k)/aug_matrix(k, k).*aug_matrix(k, :);
+                aug_matrix(j, :) = aug_matrix(j, :) - aug_matrix(j, k)/aug_matrix(k, k).*aug_matrix(k, :); % Vectorization
             else
                 disp('Pivoting required') % Error handler
                 return
