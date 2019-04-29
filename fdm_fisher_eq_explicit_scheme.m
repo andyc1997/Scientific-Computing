@@ -17,12 +17,12 @@ mu = dt/(dx^2); % In this case, stability condition is relaxed a little, however
 
 x = x_begin:dx:x_end;
 u = zeros(J + 1, N); % Solution grid
-f = sin(pi * x).^2; % Initial condition function u(x, 0)
+f = sin(pi * x).^2; % Initial condition function u(x, 0) = sin(pi*x)^2
 
 for n = 1:N
     t = n*dt; % Time update
-    u_bc_begin = 0; % u(0, t) = 0
-    u_bc_end = 0; % u(1, t) = 0
+    u_bc_begin = 0; % Boundary condition: u(0, t) = 0
+    u_bc_end = 0; % Boundary condition: u(1, t) = 0
 
     u(1, n) = u_bc_begin;
     u(J + 1, n) = u_bc_end;
@@ -33,6 +33,7 @@ for n = 1:N
     else
         for j = 2:J
             u(j, n) = mu*u(j + 1, n - 1) + (-2*mu + 1)*u(j, n - 1) + mu*u(j - 1, n - 1) + dt*(u(j, n - 1) - u(j, n - 1)^2);
+            % PDE: u_{t} = u_{xx} + u * (1 - u)
         end 
     end
 end 
