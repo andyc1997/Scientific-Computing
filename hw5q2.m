@@ -1,14 +1,11 @@
-%% Question 2 
-clear 
-clc
-%% Construct matrix
+%% Construct matrix with error
 epsilon = 0.5 * 10^(-8);
 A = [ones(1, 5); eye(5) * epsilon];
 
 %% Gram-Schmidt process
 [Q1, R1] = ClassicalGS(A);
-disp('norm(Q^T * Q - I) CGS:')
-disp(norm(Q1'*Q1 - eye(5), 'Inf'))
+disp('norm(Q^T * Q - I) CGS:') % Error in orthogonality
+disp(norm(Q1'*Q1 - eye(5), 'Inf')) % Infinity matrix norm
 
 [Q2, R2] = ModifiedGS(A);
 disp('norm(Q^T * Q - I) MGS:')
@@ -16,6 +13,7 @@ disp(norm(Q2'*Q2 - eye(5), 'Inf'))
 
 
 function [Q1, R1] = ClassicalGS(A)
+% Classical Gram-Schdmit process
     dim = size(A);
     ncol = dim(2);
     
@@ -36,6 +34,7 @@ function [Q1, R1] = ClassicalGS(A)
 end 
 
 function [Q2, R2] = ModifiedGS(A)
+% Modified Gram-Schdmit process
     dim = size(A);
     ncol = dim(2);
     
