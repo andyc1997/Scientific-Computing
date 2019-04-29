@@ -39,8 +39,8 @@ for n = 1:N
 end 
 
 tt = dt:dt:N*dt;
-surf(x, tt, u'); % Set 'EdgeColor' to 'none' when t_F is large
-zlim auto
+surf(x, tt, u'); % Set 'EdgeColor' to 'none' when t_F is large.
+
 title('Finite difference method for 1D Fisher''s equation')
 xlabel('\it x', 'interpreter', 'latex')
 ylabel('\it t', 'interpreter', 'latex')
